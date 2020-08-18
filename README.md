@@ -5,3 +5,4 @@ and Wikipedia content, and try to measure the consistency between both of them. 
 model to discover the consistency.
 
 The input is one sentence and one wikidata claim, and the output label is consistent or not.
+<img src="https://github.com/l852888/Wikipedia-Wikidata-Alignment/blob/master/framework/framework.jpg" width="75%" height="75%">
