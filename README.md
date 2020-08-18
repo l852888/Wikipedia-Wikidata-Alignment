@@ -15,4 +15,4 @@ Do some data preparation first (utilize GloVe wrod embedding ,drop stopwords and
 
 Co-attention+NSMN.py
 ---------------------------
-The model for dealing with our task, including model training and evaluation metrics.
+The model for dealing with our task, including model training and calculate evaluation metrics.
