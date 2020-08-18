@@ -8,7 +8,7 @@ glove2word2vec(input_file, output_file)
 # Glove model
 model = KeyedVectors.load_word2vec_format(output_file, binary=False)
 #==========================================================================================#
-#read the datasets you have (have "sentence" column and "wikidata claim" column)
+#read the datasets you have (have "sentence" column , "wikidata claim" column, and "label" column)
 import pandas as pd
 f=pd.read_csv(r"data.csv",lineterminator='\n' )
 plain=f["sentence"].tolist()
