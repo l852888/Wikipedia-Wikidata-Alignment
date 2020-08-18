@@ -28,11 +28,11 @@ class nsmnattention(Layer):
                                       initializer='uniform',
                                       trainable=False)
         self.kernelWs = self.add_weight(name='Ws', 
-                                      shape=(12,12),
+                                      shape=(wl,wl),
                                       initializer='uniform',
                                       trainable=False)
         self.kernelWc = self.add_weight(name='Wc', 
-                                      shape=(500,500),
+                                      shape=(sl,sl),
                                       initializer='uniform',
                                       trainable=False)
         self.kernelas = self.add_weight(name='Was', 
@@ -106,11 +106,11 @@ class coattention(Layer):
                                       initializer='uniform',
                                       trainable=True)
         self.kernelWs = self.add_weight(name='Ws', 
-                                      shape=(12,12),
+                                      shape=(wl,wl),
                                       initializer='uniform',
                                       trainable=True)
         self.kernelWc = self.add_weight(name='Wc', 
-                                      shape=(100,100),
+                                      shape=(sl,sl),
                                       initializer='uniform',
                                       trainable=True)
         self.kernelas = self.add_weight(name='Was', 
@@ -121,7 +121,7 @@ class coattention(Layer):
                                       shape=(10,1),
                                       initializer='uniform',
                                       trainable=True)
-        super(coattention, self).build(input_shape)  # 一定要在最后调用它
+        super(coattention, self).build(input_shape)  
 
 
     def call(self, x):
@@ -183,12 +183,13 @@ y_train= y_train.astype('int')
 y_test= to_categorical(y_test,2)
 y_test= y_test.astype('int')
 import numpy as np
+wl=length of wikidata claim
+sl=length of sentence 
 
-
-winput=Input(shape=(100,50))
+winput=Input(shape=(sl,50))
 wembed=LSTM(10,return_sequences=True)(winput)
 
-winput_1=Input(shape=(12,50))
+winput_1=Input(shape=(wl,50))
 wembed_1=LSTM(10,return_sequences=True)(winput_1)
 
 co=nsmnattention(40)([wembed,wembed_1])
